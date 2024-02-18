@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+
+nav{
+  height: 90px;
+  background-color: #4a568c;
+  font-size: 30px;
+}
+.nav-item{
+  color: white;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button1 {background-color: #04AA6D;} /* Green */
+.button2 {background-color: rgb(211, 67, 67);} /* Blue */
