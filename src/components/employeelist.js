@@ -1,8 +1,18 @@
 import React ,{useContext,useState} from "react";
 import { employeeData } from '../employeedata';
 import {EmployeeContext} from "../employeecontext";
+import { Editemployee } from "./editemployee";
 export const Employeelist = () => {
     const {employees, removeEmployee } = useContext(EmployeeContext);
+    const [iseditModalOpen, setIseditModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIseditModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIseditModalOpen(false);
+  };
    
     const [currentPage, setcurrentPage] = useState(1);
     const recordsperpage =5;
@@ -57,7 +67,7 @@ if(currentPage !== 1){
 
     <td>
 
-      <button className="btn"><i className="fa-solid fa-pen text-warning "></i></button>
+      <button className="btn" data-bs-toggle="modal" data-bs-target="#editemployee"><i className="fa-solid fa-pen text-warning "></i></button>
 
       <button className="btn" onClick={() => removeEmployee(employee)}><i className="fa fa-trash text-danger"></i></button>
 
@@ -100,7 +110,7 @@ if(currentPage !== 1){
   </div>
   
 </nav>
-
+<Editemployee/>
         </div>
     )
 }

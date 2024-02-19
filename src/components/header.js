@@ -21,8 +21,8 @@ export const Heading = () => {
         
       </ul>
       <div className="d-flex">
-      <button type="button" className="button button2 me-2" data-bs-toggle="modal" data-bs-target="#myModal">Primary</button>
-      <button type="button" className="button button1" data-bs-toggle="modal" data-bs-target="#addemployee">Success</button>
+      <button type="button" className="button button2 me-2" data-bs-toggle="modal" data-bs-target="#myModal">DELETE ALL</button>
+      <button type="button" className="button button1" data-bs-toggle="modal" data-bs-target="#addemployee">ADD EMPLOYEE</button>
       </div>
     </div>
   </div>
