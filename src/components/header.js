@@ -4,7 +4,7 @@ import { Addemployee } from './addemployee';
 
 
 export const Heading = () => {
-  const { deleteAll,openaddModal,setIsaddModalOpen } = useContext(EmployeeContext);
+  const { deleteAll,addModal,setIsaddModal } = useContext(EmployeeContext);
   const handleDelete = () => {
     const shouldDelete = window.confirm(`Are you sure you want to delete?`);
 
@@ -31,11 +31,11 @@ export const Heading = () => {
       </ul>
       <div className="d-flex">
       <button type="button" className="button button2 me-2"  onClick={handleDelete}>DELETE ALL</button>
-      <button type="button" className="button button1" data-bs-toggle="modal" data-bs-target={`${setIsaddModalOpen ?'#addemployee':''}`} >ADD EMPLOYEE</button>
+      <button type="button" className="button button1"  onClick={() => setIsaddModal(true)} data-bs-toggle="modal" data-bs-target={`${addModal ?'#addemployee':''}`} >ADD EMPLOYEE</button>
       </div>
     </div>
   </div>
-  {!setIsaddModalOpen?'':<Addemployee/>}
+  {addModal?<Addemployee/>:''}
    
 </nav>
 

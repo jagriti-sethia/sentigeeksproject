@@ -11,7 +11,7 @@ const EmployeeProvider = ({ children }) => {
     const [state, dispatch] = useReducer(employeeReducer, initialState);
     const[employeeslist,setemployee]  = useState(state.employees);
     const [editModal, setIseditModal] = useState(false);
-    const [addModal, setIsaddModal] = useState(true);
+    const [addModal, setIsaddModal] = useState(false);
 
     
     function deleteAll (){

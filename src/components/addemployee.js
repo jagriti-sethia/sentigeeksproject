@@ -6,7 +6,7 @@ export const Addemployee = () => {
   const [email, setemail] = useState('');
   const [address, setaddress] = useState('');
   const [phone, setphone] = useState('');
-  const { addEmployee, employees ,isaddModalOpen,setIsaddModalOpen,closeaddModal} = useContext(EmployeeContext);
+  const { addEmployee, employees } = useContext(EmployeeContext);
 
 
   const onSubmit = e => {
@@ -19,7 +19,7 @@ export const Addemployee = () => {
           phone
       }
       addEmployee(newEmployee);
-      closeaddModal();
+      
       // history.push("/");
   }
 
