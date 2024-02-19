@@ -12,9 +12,12 @@ padding-bottom: 5%;
 .Diagonal{
   padding-top: 8%; 
 }
+.table{
+  overflow-x:auto;
+}
 
 nav{
-  height: 90px;
+  height: auto;
   background-color: #4a568c;
   font-size: 30px;
 }

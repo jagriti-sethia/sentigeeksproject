@@ -14,7 +14,7 @@ export const Heading = () => {
     }
   };
     return(
-        <div>
+        <div className='container'>
          
          <nav className="navbar navbar-expand-sm navbar-dark  container">
   <div className="container mx-5">

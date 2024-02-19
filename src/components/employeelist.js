@@ -34,7 +34,7 @@ if(currentPage !== 1){
    
     return(
         <div className="container">
-             
+  <div className="table">           
 <table className="container ">
 
 <thead >
@@ -78,6 +78,7 @@ if(currentPage !== 1){
 </tbody>
 ))}
 </table>
+</div>
 <nav className="navbar navbar-expand-sm navbar-dark  container">
   <div className="container mx-5">
     
