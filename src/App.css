@@ -5,6 +5,13 @@
 body {
   font-family: 'Uchen', serif;
 }
+.App{
+padding-top: 5%;
+padding-bottom: 5%;
+}
+.Diagonal{
+  padding-top: 8%; 
+}
 
 nav{
   height: 90px;
