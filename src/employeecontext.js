@@ -1,4 +1,4 @@
-import React , { createContext,useReducer  } from 'react';
+import React , { createContext,useReducer, useState  } from 'react';
 import { employeeReducer } from './employeereducer';
 import { employeeData } from './employeedata';
 export const EmployeeContext = createContext();
@@ -9,11 +9,15 @@ const EmployeeProvider = ({ children }) => {
     };
   
     const [state, dispatch] = useReducer(employeeReducer, initialState);
+    const[employees,setemployee]  = useState(state.employees);
     function removeEmployee(employee) {
       dispatch({
           type: 'REMOVE_EMPLOYEE',
           payload: employee
       });
+  };
+  function deleteAll (){
+setemployee(['']);
   };
 
   function addEmployee(employees) {
@@ -31,9 +35,9 @@ const EmployeeProvider = ({ children }) => {
   };
   
     return (
-      <EmployeeContext.Provider value={{  employees: state.employees, removeEmployee,
+      <EmployeeContext.Provider value={{  employees, removeEmployee,
         addEmployee,
-        editEmployee }}>
+        editEmployee,deleteAll }}>
         {children}
       </EmployeeContext.Provider>
     );

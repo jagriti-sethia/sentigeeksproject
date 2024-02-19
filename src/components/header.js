@@ -1,9 +1,18 @@
-import React from 'react';
-
+import React,{useContext} from  'react';
+import {EmployeeContext} from "../employeecontext";
 import { Addemployee } from './addemployee';
 
 
 export const Heading = () => {
+  const { deleteAll, employees } = useContext(EmployeeContext);
+  const handleDelete = () => {
+    const shouldDelete = window.confirm(`Are you sure you want to delete?`);
+
+    if (shouldDelete) {
+      // Call the onDelete function to delete the item
+      deleteAll();
+    }
+  };
     return(
         <div>
          
@@ -21,7 +30,7 @@ export const Heading = () => {
         
       </ul>
       <div className="d-flex">
-      <button type="button" className="button button2 me-2" data-bs-toggle="modal" data-bs-target="#myModal">DELETE ALL</button>
+      <button type="button" className="button button2 me-2"  onClick={handleDelete}>DELETE ALL</button>
       <button type="button" className="button button1" data-bs-toggle="modal" data-bs-target="#addemployee">ADD EMPLOYEE</button>
       </div>
     </div>
