@@ -41,19 +41,19 @@ export const Addemployee = () => {
         {/* Modal body.. */}
         <div class="mb-3 mt-3">
       <label for="name">Name:</label>
-      <input type="text" class="form-control form-control-lg" id="name" placeholder="Enter name" name="name" value={name} onChange={(e) => setname(e.target.value)} />
+      <input required type="text" class="form-control form-control-lg" id="name" placeholder="Enter name" name="name" value={name} onChange={(e) => setname(e.target.value)} />
     </div>
     <div class="mb-3">
       <label for="email">Email:</label>
-      <input type="email" class=" form-control form-control-lg" id="email" placeholder="Enter email" name="email" value={email} onChange={(e) => setemail(e.target.value)} />
+      <input required type="email" class=" form-control form-control-lg" id="email" placeholder="Enter email" name="email" value={email} onChange={(e) => setemail(e.target.value)} />
     </div>
     <div class="mb-3 mt-3">
       <label for="address">Address:</label>
-      <textarea class="form-control" rows="5" id="address" name="address" value={address} onChange={(e) => setaddress(e.target.value)} ></textarea>
+      <textarea required class="form-control" rows="5" id="address" name="address" value={address} onChange={(e) => setaddress(e.target.value)} ></textarea>
     </div>
     <div class="mb-3">
       <label for="phone">Phone:</label>
-      <input type="text" class=" form-control form-control-lg" id="phone" placeholder="Enter phonenumber" name="phone" value={phone} onChange={(e) => setphone(e.target.value)} />
+      <input required type="text" class=" form-control form-control-lg" id="phone" placeholder="Enter phonenumber" name="phone" value={phone} onChange={(e) => setphone(e.target.value)} />
     </div>
       </div>
 

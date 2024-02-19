@@ -10,25 +10,10 @@ const EmployeeProvider = ({ children }) => {
   
     const [state, dispatch] = useReducer(employeeReducer, initialState);
     const[employeeslist,setemployee]  = useState(state.employees);
-    const [iseditModalOpen, setIseditModalOpen] = useState(false);
-    const [isaddModalOpen, setIsaddModalOpen] = useState(true);
+    const [editModal, setIseditModal] = useState(false);
+    const [addModal, setIsaddModal] = useState(true);
 
-    const openeditModal = (employee) => {
-      setIseditModalOpen(true);
-      editEmployee(employee);
-    };
-  
-    const closeeditModal = () => {
-      setIseditModalOpen(false);
-    };
-    const openaddModal = (employee) => {
-      setIsaddModalOpen(true);
-   
-    };
-  
-    const closeaddModal = () => {
-      setIsaddModalOpen(false);
-    };
+    
     function deleteAll (){
       dispatch({
         type: 'DELETEALL',
@@ -51,6 +36,7 @@ const EmployeeProvider = ({ children }) => {
   };
 
   function editEmployee(prop) {
+    setIseditModal(true);
       dispatch({
           type: 'EDIT_EMPLOYEE',
           payload: prop
@@ -60,7 +46,7 @@ const EmployeeProvider = ({ children }) => {
     return (
       <EmployeeContext.Provider value={{  employees: state.employees,employeeslist, removeEmployee,
         addEmployee,
-        editEmployee,deleteAll,isaddModalOpen,iseditModalOpen,closeaddModal,closeeditModal,setIseditModalOpen,setIsaddModalOpen,openaddModal,openeditModal }}>
+        editEmployee,deleteAll,editModal, setIseditModal,addModal, setIsaddModal }}>
         {children}
       </EmployeeContext.Provider>
     );

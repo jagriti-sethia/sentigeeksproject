@@ -1,19 +1,11 @@
 import React ,{useContext,useState} from "react";
+import { Modal } from "react-bootstrap";
 import { employeeData } from '../employeedata';
 import {EmployeeContext} from "../employeecontext";
 import { Editemployee } from "./editemployee";
+
 export const Employeelist = () => {
-    const {employees, removeEmployee,editEmployee } = useContext(EmployeeContext);
-    const [iseditModalOpen, setIseditModalOpen] = useState(false);
-
-  const openModal = (employee) => {
-    setIseditModalOpen(true);
-    editEmployee(employee);
-  };
-
-  const closeModal = () => {
-    setIseditModalOpen(false);
-  };
+    const {employees, removeEmployee,editEmployee,editModal ,setIseditModal} = useContext(EmployeeContext);
    
     const [currentPage, setcurrentPage] = useState(1);
     const recordsperpage =5;
@@ -36,6 +28,10 @@ if(currentPage !== 1){
             setcurrentPage(currentPage+1)
         }
     }
+
+    
+
+   
     return(
         <div className="container">
              
@@ -69,8 +65,8 @@ if(currentPage !== 1){
 
     <td>
 
-      <button className="btn" data-bs-toggle="modal" data-bs-target="#editemployee" onClick={() => openModal(employee)}><i className="fa-solid fa-pen text-warning "></i></button>
-
+      <button className="btn"  onClick={() => setIseditModal(true)} data-bs-toggle="modal" data-bs-target={`${editModal ?'#editemployee':''}`}><i className="fa-solid fa-pen text-warning "></i></button>
+      <Editemployee theEmployee={employee}/>
       <button className="btn" onClick={() => removeEmployee(employee)}><i className="fa fa-trash text-danger"></i></button>
 
     </td>
@@ -112,7 +108,7 @@ if(currentPage !== 1){
   </div>
   
 </nav>
-<Editemployee/>
+
         </div>
     )
 }
