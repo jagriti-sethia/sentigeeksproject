@@ -2,36 +2,33 @@ import React, { useState } from 'react';
 
 const DiagonalSum = () => {
   const [matrix, setMatrix] = useState([
-   [1, 5, 9, 13] ,
-   [ 2, 6, 10, 14],
-    [3, 7, 11, 15],
-    [4, 8, 12, 16]
+   [1,2,3,4] ,
+   [5,6,7,8],
+    [9,10,11,12],
+    [13,14,15,16]
   ]);
 
-  const calculateDiagonalSum = () => {
-    let sum = 0;
-    for (let i = 0; i < matrix.length; i++) {
-      sum += matrix[i * matrix.length + i];
-    }
-    return sum;
-  }
+  const mainDiagonalSum = matrix.reduce((sum, row, index) => sum + row[index], 0);
+
+  // Calculate the sum of the anti-diagonal (secondary diagonal)
+  const antiDiagonalSum = matrix.reduce((sum, row, index) => sum + row[row.length - 1 - index], 0);
 
   return (
     <div>
-        {matrix.map((row, rowIndex) => (
-
-<div key={rowIndex}>
-
-  {row.map((element, elementIndex) => (
-
-    <div key={elementIndex}>{element}</div>
-
-  ))}
-
-</div>
-
-))}
-      <p>Sum of diagonal numbers: {calculateDiagonalSum()}</p>
+       <h2>2D Matrix:</h2>
+      <table>
+        <tbody>
+          {matrix.map((row, rowIndex) => (
+            <tr key={rowIndex}>
+              {row.map((cell, colIndex) => (
+                <td key={colIndex}>{cell}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p>Main Diagonal Sum: {mainDiagonalSum}</p>
+      <p>Anti-Diagonal Sum: {antiDiagonalSum}</p>
     </div>
   );
 }
