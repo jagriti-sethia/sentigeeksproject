@@ -14,7 +14,7 @@ const DiagonalSum = () => {
   const antiDiagonalSum = matrix.reduce((sum, row, index) => sum + row[row.length - 1 - index], 0);
 
   return (
-    <div>
+    <div className='container'>
        <h2>2D Matrix:</h2>
       <table>
         <tbody>
@@ -27,8 +27,8 @@ const DiagonalSum = () => {
           ))}
         </tbody>
       </table>
-      <p>Main Diagonal Sum: {mainDiagonalSum}</p>
-      <p>Anti-Diagonal Sum: {antiDiagonalSum}</p>
+      <h1>Main Diagonal Sum: {mainDiagonalSum}</h1>
+      <h1>Anti-Diagonal Sum: {antiDiagonalSum}</h1>
     </div>
   );
 }

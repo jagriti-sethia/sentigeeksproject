@@ -3,11 +3,12 @@ import { employeeData } from '../employeedata';
 import {EmployeeContext} from "../employeecontext";
 import { Editemployee } from "./editemployee";
 export const Employeelist = () => {
-    const {employees, removeEmployee } = useContext(EmployeeContext);
+    const {employees, removeEmployee,editEmployee } = useContext(EmployeeContext);
     const [iseditModalOpen, setIseditModalOpen] = useState(false);
 
-  const openModal = () => {
+  const openModal = (employee) => {
     setIseditModalOpen(true);
+    editEmployee(employee);
   };
 
   const closeModal = () => {
@@ -18,8 +19,9 @@ export const Employeelist = () => {
     const recordsperpage =5;
     const lastIndex = currentPage * recordsperpage;
     const firstIndex = lastIndex - recordsperpage;
-    const records = employees.slice(firstIndex,lastIndex);
-    const npage = Math.ceil(employees.length/ recordsperpage);
+    const records = employees?.slice(firstIndex,lastIndex);
+    const x = employees?.length;
+    const npage = x?Math.ceil(x/ recordsperpage):0;
     const numbers = [...Array(npage+1).keys()].slice(1);
     function prePage(){
 if(currentPage !== 1){
@@ -67,7 +69,7 @@ if(currentPage !== 1){
 
     <td>
 
-      <button className="btn" data-bs-toggle="modal" data-bs-target="#editemployee"><i className="fa-solid fa-pen text-warning "></i></button>
+      <button className="btn" data-bs-toggle="modal" data-bs-target="#editemployee" onClick={() => openModal(employee)}><i className="fa-solid fa-pen text-warning "></i></button>
 
       <button className="btn" onClick={() => removeEmployee(employee)}><i className="fa fa-trash text-danger"></i></button>
 
@@ -95,15 +97,15 @@ if(currentPage !== 1){
       </ul> 
 <div className="d-flex">
 <ul className="pagination  ">
-    <li className="page-item"><a className="page-link" href="#" onClick={prePage}>Previous</a></li>
+    <li className="page-item"><a className="page-link"  onClick={prePage}>Previous</a></li>
     {
         numbers.map((n,i)=>(
-            <li className={`page-item ${currentPage === n?'active':''}`} key={i}><a className="page-link" href="#" onClick={()=>changeCpage(n)}>{n}</a></li>
+            <li className={`page-item ${currentPage === n?'active':''}`} key={i}><a className="page-link" onClick={()=>changeCpage(n)}>{n}</a></li>
         ))
     }
    
     
-    <li className="page-item"><a className="page-link" href="#" onClick={nextPage}>Next</a></li>
+    <li className="page-item"><a className="page-link"  onClick={nextPage}>Next</a></li>
   </ul></div> 
 
   </div>

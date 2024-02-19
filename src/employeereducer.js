@@ -24,6 +24,10 @@ const employeeReducer = (state, action) => {
             ...state,
             employees: updatedEmployees
         };
+        case 'DELETEALL':
+            return{
+                state:'',
+            }
     default: return state;
 }
   };

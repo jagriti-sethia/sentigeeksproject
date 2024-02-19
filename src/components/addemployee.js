@@ -6,7 +6,7 @@ export const Addemployee = () => {
   const [email, setemail] = useState('');
   const [address, setaddress] = useState('');
   const [phone, setphone] = useState('');
-  const { addEmployee, employees } = useContext(EmployeeContext);
+  const { addEmployee, employees ,isaddModalOpen,setIsaddModalOpen,closeaddModal} = useContext(EmployeeContext);
 
 
   const onSubmit = e => {
@@ -19,6 +19,7 @@ export const Addemployee = () => {
           phone
       }
       addEmployee(newEmployee);
+      closeaddModal();
       // history.push("/");
   }
 
@@ -34,7 +35,7 @@ export const Addemployee = () => {
         <h4 className="modal-title">Add Employee</h4>
         <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
       </div>
-      <form>
+      <form onSubmit={onSubmit}>
       {/* <!-- Modal body --> */}
       <div className="modal-body">
         {/* Modal body.. */}
